@@ -2,7 +2,6 @@ import React, { useState, useEffect, useMemo } from 'react';
 import {
   Plus,
   Search,
-  Filter,
   Wifi,
   Home,
   Tv,
@@ -13,17 +12,13 @@ import {
   PlayCircle,
   History,
   Edit3,
-  Trash2,
   Calendar,
-  CheckCircle2,
   Layers,
   Repeat
 } from 'lucide-react';
 import {
   FixedExpense,
   BankAccount,
-  ExpenseCategory,
-  BillingCycle,
   PaymentHistoryRecord
 } from '../types';
 import { usePrivacy } from '../context/PrivacyContext';
@@ -447,48 +442,63 @@ export const ItemsPage: React.FC = () => {
     const pastRecords: PaymentHistoryRecord[] = [
       {
         id: `hist-${exp.id}-1`,
+        fixedExpenseId: exp.id,
         periodYearMonth: '2026-08',
-        amount: exp.defaultAmount,
+        periodLabel: '2026 Augusztus',
+        actualAmount: exp.defaultAmount,
+        plannedAmount: exp.defaultAmount,
         paidAt: '2026-08-15T09:30:00Z',
         status: 'PAID',
         paymentMethod: exp.paymentMethod,
-        accountName: exp.defaultAccount?.name || 'Revolut'
+        account: exp.defaultAccount || null
       },
       {
         id: `hist-${exp.id}-2`,
+        fixedExpenseId: exp.id,
         periodYearMonth: '2026-07',
-        amount: exp.isVariableAmount ? Math.round(exp.defaultAmount * 0.94) : exp.defaultAmount,
+        periodLabel: '2026 Július',
+        actualAmount: exp.isVariableAmount ? Math.round(exp.defaultAmount * 0.94) : exp.defaultAmount,
+        plannedAmount: exp.defaultAmount,
         paidAt: '2026-07-16T11:00:00Z',
         status: 'PAID',
         paymentMethod: exp.paymentMethod,
-        accountName: exp.defaultAccount?.name || 'Revolut'
+        account: exp.defaultAccount || null
       },
       {
         id: `hist-${exp.id}-3`,
+        fixedExpenseId: exp.id,
         periodYearMonth: '2026-06',
-        amount: exp.isVariableAmount ? Math.round(exp.defaultAmount * 1.05) : exp.defaultAmount,
+        periodLabel: '2026 Június',
+        actualAmount: exp.isVariableAmount ? Math.round(exp.defaultAmount * 1.05) : exp.defaultAmount,
+        plannedAmount: exp.defaultAmount,
         paidAt: '2026-06-15T14:15:00Z',
         status: 'PAID',
         paymentMethod: exp.paymentMethod,
-        accountName: exp.defaultAccount?.name || 'Revolut'
+        account: exp.defaultAccount || null
       },
       {
         id: `hist-${exp.id}-4`,
+        fixedExpenseId: exp.id,
         periodYearMonth: '2026-05',
-        amount: exp.defaultAmount,
+        periodLabel: '2026 Május',
+        actualAmount: exp.defaultAmount,
+        plannedAmount: exp.defaultAmount,
         paidAt: '2026-05-15T08:45:00Z',
         status: 'PAID',
         paymentMethod: exp.paymentMethod,
-        accountName: exp.defaultAccount?.name || 'Revolut'
+        account: exp.defaultAccount || null
       },
       {
         id: `hist-${exp.id}-5`,
+        fixedExpenseId: exp.id,
         periodYearMonth: '2026-04',
-        amount: exp.defaultAmount,
+        periodLabel: '2026 Április',
+        actualAmount: exp.defaultAmount,
+        plannedAmount: exp.defaultAmount,
         paidAt: '2026-04-14T10:20:00Z',
         status: 'PAID',
         paymentMethod: exp.paymentMethod,
-        accountName: exp.defaultAccount?.name || 'Revolut'
+        account: exp.defaultAccount || null
       }
     ];
 

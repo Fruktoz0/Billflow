@@ -4,15 +4,12 @@ import {
   ChevronRight,
   Calendar as CalendarIcon,
   Check,
-  CheckCircle2,
-  AlertCircle,
   Wifi,
   Home,
   Tv,
   Shield,
   CreditCard,
-  FileText,
-  Clock
+  FileText
 } from 'lucide-react';
 import { DashboardItem, BankAccount, FixedExpense } from '../types';
 import { usePrivacy } from '../context/PrivacyContext';
@@ -305,25 +302,6 @@ export const CalendarPage: React.FC = () => {
     0
   );
 
-  // Month navigation
-  const handlePrevMonth = () => {
-    if (currentMonth === 0) {
-      setCurrentYear((y) => y - 1);
-      setCurrentMonth(11);
-    } else {
-      setCurrentMonth((m) => m - 1);
-    }
-  };
-
-  const handleNextMonth = () => {
-    if (currentMonth === 11) {
-      setCurrentYear((y) => y + 1);
-      setCurrentMonth(0);
-    } else {
-      setCurrentMonth((m) => m + 1);
-    }
-  };
-
   const handleGoToToday = () => {
     setCurrentYear(2026);
     setCurrentMonth(8);
@@ -331,12 +309,13 @@ export const CalendarPage: React.FC = () => {
   };
 
   // Pay Item handler
-  const handlePay = (item: DashboardItem) => {
+  const handlePay = (item: DashboardItem, actualAmount?: number, paymentNote?: string) => {
+    const payAmount = actualAmount ?? item.plannedAmount;
     setLastPaidItem({ ...item });
     setItems((prev) =>
       prev.map((it) =>
         it.fixedExpenseId === item.fixedExpenseId
-          ? { ...it, status: 'PAID', actualAmount: it.plannedAmount, paidAt: new Date().toISOString() }
+          ? { ...it, status: 'PAID', actualAmount: payAmount, paidAt: new Date().toISOString() }
           : it
       )
     );
@@ -346,7 +325,8 @@ export const CalendarPage: React.FC = () => {
     api.payments
       .pay(item.fixedExpenseId, {
         periodYearMonth: `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}`,
-        actualAmount: item.plannedAmount
+        actualAmount: payAmount,
+        note: paymentNote
       })
       .catch(() => {});
   };
@@ -767,7 +747,7 @@ export const CalendarPage: React.FC = () => {
         accounts={accounts}
         onSave={handleSaveExpense}
         onConfirmPayment={async (expItem, actualAmount, note) => {
-          handlePay(expItem);
+          handlePay(expItem, actualAmount, note);
         }}
       />
 

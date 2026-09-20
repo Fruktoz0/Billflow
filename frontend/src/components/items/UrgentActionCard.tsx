@@ -2,7 +2,6 @@ import React from 'react';
 import { AlertTriangle, Check, Clock } from 'lucide-react';
 import { DashboardItem } from '../../types';
 import { usePrivacy } from '../../context/PrivacyContext';
-import { BankBadge } from '../common/BankBadge';
 
 interface UrgentActionCardProps {
   overdueItem: DashboardItem;

@@ -74,7 +74,7 @@ export const pushService = {
     const applicationServerKey = urlBase64ToUint8Array(publicKey);
     const subscription = await registration.pushManager.subscribe({
       userVisibleOnly: true,
-      applicationServerKey
+      applicationServerKey: applicationServerKey as unknown as BufferSource
     });
 
     // 5. Send subscription to backend

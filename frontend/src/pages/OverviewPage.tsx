@@ -299,6 +299,15 @@ export const OverviewPage: React.FC = () => {
         }
       });
 
+    api.accounts
+      .getAll()
+      .then((accs) => {
+        if (isMounted && accs && accs.length > 0) {
+          setAccounts(accs);
+        }
+      })
+      .catch(() => {});
+
     return () => {
       isMounted = false;
     };

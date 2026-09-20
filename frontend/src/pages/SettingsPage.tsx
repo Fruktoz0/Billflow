@@ -25,10 +25,7 @@ import {
   RefreshCw,
   X,
   Share2,
-  Crown,
-  AlertCircle,
-  LogIn,
-  Send
+  Crown
 } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { usePrivacy } from '../context/PrivacyContext';
@@ -229,7 +226,7 @@ export const SettingsPage: React.FC = () => {
   // Resend / extend outgoing invitation
   const handleResendInvitation = async (id: string) => {
     try {
-      const res = await api.households.resendInvitation(id);
+      await api.households.resendInvitation(id);
       setStatusFeedback('A meghívó érvényessége meghosszabbítva 7 nappal.');
       await loadHouseholdData();
     } catch (err: any) {
@@ -334,7 +331,7 @@ export const SettingsPage: React.FC = () => {
             id: user?.id || 'usr-1',
             displayName: user?.displayName || 'Családfő (Te)',
             email: user?.email || 'admin@billflow.hu',
-            role: (user?.role || 'OWNER') as const,
+            role: (user?.role || 'OWNER') as 'OWNER' | 'MEMBER',
             createdAt: '2026-09-01'
           }
         ];
