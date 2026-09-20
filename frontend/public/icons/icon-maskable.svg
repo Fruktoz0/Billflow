@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <!-- Full background without rounded corners for safe area maskable -->
+  <rect width="512" height="512" fill="#0E8A9A"/>
+  <circle cx="256" cy="256" r="140" fill="#0C7785" opacity="0.3"/>
+  <path d="M170 210C170 196.745 180.745 186 194 186H318C331.255 186 342 196.745 342 210V302C342 315.255 331.255 326 318 326H194C180.745 326 170 315.255 170 302V210Z" stroke="white" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="32" fill="white"/>
+</svg>

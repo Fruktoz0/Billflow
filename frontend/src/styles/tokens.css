@@ -1,0 +1,62 @@
+:root, [data-theme="light"] {
+  --bg:        #F5FBFB;  /* oldal háttér, alig türkiz köd */
+  --surface:   #FFFFFF;  /* kártyák */
+  --ink:       #16181D;  /* szöveg */
+  --ink-2:     #566F74;  /* másodlagos szöveg, hűvös szürketürkiz */
+  --line:      #DCECED;  /* 0.5px hajszálvonal */
+
+  --accent:        #0E8A9A;  /* sávok, pontok, haladás */
+  --accent-strong: #0B7886;  /* kitöltött gombok, FAB */
+  --accent-text:   #0B6B78;  /* szöveg tint hátterén */
+  --accent-tint:   #E5F4F6;  /* halvány háttér: chip, ikon négyzet */
+  --accent-soft:   #A9DBE1;  /* második számla csíkon */
+  --on-accent:     #FFFFFF;
+
+  --overdue:       #B91C1C;
+  --overdue-bg:    #FEE2E2;
+  --soon:          #92400E;
+  --soon-bg:       #FEF3C7;
+  --paid:          #15803D;
+  --paid-bg:       #DCFCE7;
+}
+
+[data-theme="dark"] {
+  --bg:        #0C1214;  /* hűvös mélytürkiz sötét háttér */
+  --surface:   #141D20;  /* sötét kártya felület */
+  --ink:       #EEF3F3;  /* világos szöveg */
+  --ink-2:     #93A3A8;  /* másodlagos szürkés szöveg */
+  --line:      #243236;  /* sötét hajszálvonal */
+
+  --accent:        #2BB3C4;
+  --accent-strong: #2BB3C4;
+  --accent-text:   #7FD6E2;
+  --accent-tint:   #12333A;
+  --accent-soft:   #1E5A63;
+  --on-accent:     #06272C;
+
+  --overdue:       #FF8A8E;
+  --overdue-bg:    #3A1416;
+  --soon:          #F5B942;
+  --soon-bg:       #3A2E0B;
+  --paid:          #4ADE80;
+  --paid-bg:       #12301D;
+}
+
+/* Card border requirement from DESIGN.md: always 0.5px border to maintain contrast */
+.billflow-card {
+  background-color: var(--surface);
+  border: 0.5px solid var(--line);
+  transition: background-color 200ms ease, border-color 200ms ease;
+}
+
+/* Tabular numbers for financial alignment */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Privacy mode blur */
+.privacy-active .privacy-blur {
+  filter: blur(8px);
+  user-select: none;
+  pointer-events: none;
+}

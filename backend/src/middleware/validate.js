@@ -1,0 +1,27 @@
+/**
+ * Higher-order middleware to validate incoming request data with a Zod schema.
+ * @param {import('zod').ZodSchema} schema - Zod schema to validate against
+ * @param {'body' | 'query' | 'params'} source - Property on req to validate (default: 'body')
+ */
+const validate = (schema, source = 'body') => {
+  return (req, res, next) => {
+    try {
+      const parsed = schema.parse(req[source]);
+      req[source] = parsed;
+      next();
+    } catch (err) {
+      if (err.errors) {
+        return res.status(400).json({
+          error: 'Validation failed',
+          details: err.errors.map((e) => ({
+            field: e.path.join('.'),
+            message: e.message
+          }))
+        });
+      }
+      next(err);
+    }
+  };
+};
+
+module.exports = validate;

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" fill="none">
+  <rect width="512" height="512" rx="112" fill="#0E8A9A"/>
+  <circle cx="256" cy="256" r="170" fill="#0C7785" opacity="0.4"/>
+  <!-- Billflow Flowing Lines & Coin Glyph -->
+  <path d="M149 197C149 179.327 163.327 165 181 165H331C348.673 165 363 179.327 363 197V315C363 332.673 348.673 347 331 347H181C163.327 347 149 332.673 149 315V197Z" stroke="white" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="256" cy="256" r="42" fill="white"/>
+  <path d="M190 213H218M294 299H322" stroke="white" stroke-width="16" stroke-linecap="round"/>
+</svg>
