@@ -4,14 +4,10 @@ import {
   X,
   Check,
   Calendar,
-  CreditCard,
-  FileText,
   Trash2,
   PauseCircle,
   PlayCircle,
-  Tag,
-  Clock,
-  HelpCircle
+  Clock
 } from 'lucide-react';
 import {
   FixedExpense,

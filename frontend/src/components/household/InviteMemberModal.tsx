@@ -127,7 +127,7 @@ export const InviteMemberModal: React.FC<InviteMemberModalProps> = ({
       try {
         await navigator.share({
           title: `Meghívó a(z) ${householdName} háztartásba`,
-          text: `Csatlakozz a(z) ${householdName} közös számláihoz és pénzügyeihez a Billflow-ban!`,
+          text: text || `Csatlakozz a(z) ${householdName} közös számláihoz és pénzügyeihez a Billflow-ban!`,
           url
         });
       } catch (err) {

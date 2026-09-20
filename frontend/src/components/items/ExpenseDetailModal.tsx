@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import {
-  Calendar,
-  CreditCard,
   Bell,
   Trash2,
   TrendingUp,
@@ -13,14 +11,12 @@ import {
   Check,
   FileText,
   Clock,
-  ArrowRight,
   AlertTriangle,
   X
 } from 'lucide-react';
 import {
   FixedExpense,
   DashboardItem,
-  ExpenseCategory,
   BillingCycle,
   BankAccount,
   PaymentHistoryRecord
@@ -94,9 +90,10 @@ export const ExpenseDetailModal: React.FC<ExpenseDetailModalProps> = ({
       setBillingCycle(expense.billingCycle || 'MONTHLY');
       setDueDay(expense.dueDay || 19);
       setSelectedAccountId(
-        ('defaultAccountId' in expense ? expense.defaultAccountId : expense.accountId) ||
+        (('accountId' in expense && expense.accountId) ||
+          ('defaultAccountId' in expense && expense.defaultAccountId) ||
           accounts[0]?.id ||
-          ''
+          '') as string
       );
       setNotes(('paymentNote' in expense ? expense.paymentNote : expense.notes) || '');
     } else {
@@ -390,9 +387,10 @@ export const ExpenseDetailModal: React.FC<ExpenseDetailModalProps> = ({
           {/* 3-month history cards with trend under amount */}
           <div className="space-y-2">
             {historyRecords.slice(0, 3).map((rec) => {
-              const isHigher = rec.diffAmount !== null && rec.diffAmount > 0;
-              const isLower = rec.diffAmount !== null && rec.diffAmount < 0;
-              const isSame = rec.diffAmount !== null && rec.diffAmount === 0;
+              const diff = rec.diffAmount;
+              const isHigher = typeof diff === 'number' && diff > 0;
+              const isLower = typeof diff === 'number' && diff < 0;
+              const isSame = typeof diff === 'number' && diff === 0;
 
               return (
                 <div
@@ -574,9 +572,6 @@ export const ExpenseDetailModal: React.FC<ExpenseDetailModalProps> = ({
           onClose={() => setIsHistoryModalOpen(false)}
           expenseName={name}
           historyRecords={historyRecords}
-          onSelectPayment={(payment) => {
-            setSelectedPaymentForDetail(payment);
-          }}
         />
       )}
 

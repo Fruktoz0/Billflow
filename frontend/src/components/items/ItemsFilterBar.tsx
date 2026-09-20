@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import { Search, X, ChevronDown, Check, CreditCard, SlidersHorizontal } from 'lucide-react';
+import { Search, X, ChevronDown, Check, CreditCard } from 'lucide-react';
 import { BankBadge } from '../common/BankBadge';
 import { BankAccount } from '../../types';
 

@@ -38,7 +38,6 @@ export const HeroCard: React.FC<HeroCardProps> = ({
   paidCount,
   totalCount,
   selectedYear = TODAY_YEAR,
-  selectedMonth = TODAY_MONTH_IDX,
   onPrevMonth,
   onNextMonth,
   onResetMonth,

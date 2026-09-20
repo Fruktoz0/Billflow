@@ -1,5 +1,5 @@
 import React from 'react';
-import { CreditCard, Star, Edit3, Trash2 } from 'lucide-react';
+import { Star, Edit3, Trash2 } from 'lucide-react';
 import { BankAccount } from '../../types';
 import { usePrivacy } from '../../context/PrivacyContext';
 import { BankBadge } from '../common/BankBadge';

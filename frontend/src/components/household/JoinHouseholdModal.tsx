@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Key, LogIn, AlertCircle, Check, Loader2, Info } from 'lucide-react';
+import { X, Key, LogIn, AlertCircle, Loader2, Info } from 'lucide-react';
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 import { api } from '../../services/api';
 import { Household } from '../../types';

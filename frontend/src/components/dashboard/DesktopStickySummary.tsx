@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calendar as CalendarIcon, CheckCircle2, AlertCircle } from 'lucide-react';
+import { Calendar as CalendarIcon } from 'lucide-react';
 import { DashboardSummary, AccountBreakdown, DashboardItem } from '../../types';
 import { formatHUF } from '../../utils/format';
 

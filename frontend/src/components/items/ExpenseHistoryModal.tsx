@@ -6,16 +6,11 @@ import {
   TrendingUp,
   TrendingDown,
   Minus,
-  CheckCircle2,
-  Calendar,
-  CreditCard,
   ChevronRight,
-  Filter,
-  BarChart3,
   ArrowUpRight,
   ArrowDownRight
 } from 'lucide-react';
-import { PaymentHistoryRecord, BankAccount } from '../../types';
+import { PaymentHistoryRecord } from '../../types';
 import { usePrivacy } from '../../context/PrivacyContext';
 import { PaymentDetailModal } from './PaymentDetailModal';
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';

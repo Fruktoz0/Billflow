@@ -13,7 +13,6 @@ import {
 } from 'lucide-react';
 import { DashboardItem, ExpenseCategory } from '../../types';
 import { formatHUF } from '../../utils/format';
-import { BankBadge } from '../common/BankBadge';
 
 interface ExpenseRowProps {
   item: DashboardItem;
@@ -230,7 +229,11 @@ export const ExpenseRow: React.FC<ExpenseRowProps> = ({
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                onClick?.(item); // opens reduced detail/payment modal
+                if (onPay) {
+                  onPay(item);
+                } else {
+                  onClick?.(item);
+                }
               }}
               className="px-3 py-1 rounded-control bg-accent hover:bg-accent-strong text-white text-xs font-bold flex items-center gap-1.5 shadow-xs active:scale-95 transition-all"
               title="Befizetés rögzítése és adatok ellenőrzése"

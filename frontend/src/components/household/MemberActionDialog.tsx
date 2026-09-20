@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, AlertTriangle, Shield, UserMinus, LogOut, Check, Loader2 } from 'lucide-react';
+import { X, AlertTriangle, Shield, UserMinus, LogOut, Loader2 } from 'lucide-react';
 import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
 import { User } from '../../types';
 
